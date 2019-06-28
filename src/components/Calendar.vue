@@ -29,6 +29,7 @@
           v-for="(day,index) in days"
           :key="index"
           class="day-container"
+          @click="clickedDay(day)"
         >
           <div
             class="before"
@@ -95,6 +96,11 @@ export default {
     }
   },
   methods: {
+    clickedDay(day) {
+      if(day!== null) {
+        this.$emit("click", day._date)
+      }
+    },
     prevMonth () {
       this.date = new DateTime(this.selectedYear, this.selectedMonth - 1, 1)
     },
@@ -118,14 +124,15 @@ export default {
       return weekdays
     },
     generateDayStyle (date) {
-      let style = {}
+      let style = {cursor:this.cursor}
       for (let event of this.events) {
         if (date.isInRange(event.start, event.end, event.repeat)) {
           let category = this.eventCategories.find(item => item.id === event.categoryId) || {}
           Object.assign(style, {
             color: category.id ? category.textColor : null,
             backgroundColor: category.id ? category.backgroundColor : null,
-            fontWeight: category.id ? 'bold' : 'normal'
+            fontWeight: category.id ? 'bold' : 'normal',
+            cursor: this.eventCursor
           })
         }
       }
@@ -163,6 +170,14 @@ export default {
     initialDate: {
       type: String,
       default: null
+    },
+    eventCursor: {
+      type: String,
+      default: ""
+    },
+    cursor: {
+      type: String,
+      default: ""
     },
     firstDayOfWeek: {
       type: Number,

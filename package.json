@@ -1,6 +1,6 @@
 {
   "name": "vue-sweet-calendar",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A simple and sweet calendar for Vue.js",
   "main": "./dist/SweetCalendar.umd.min.js",
   "files": [
@@ -20,24 +20,24 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
+    "core-js": "^2.6.9",
     "vue": "^2.6.6"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.0",
-    "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-plugin-unit-jest": "^3.5.0",
-    "@vue/cli-service": "^3.5.0",
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-plugin-unit-jest": "^3.8.0",
+    "@vue/cli-service": "^3.8.4",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^23.6.0",
+    "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.8.0",
     "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint-plugin-vue": "^5.2.3",
     "node-sass": "^4.12.0",
     "npm-run-all": "^4.1.5",
-    "sass-lint": "^1.12.1",
+    "sass-lint": "^1.13.1",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.21"
   },
@@ -48,15 +48,19 @@
     "component",
     "calendar"
   ],
-  "homepage": "https://github.com/maryayi/vue-sweet-calendar",
+  "homepage": "https://github.com/wolfscott/vue-sweet-calendar.git",
   "bugs": {
-    "url": "https://github.com/maryayi/vue-sweet-calendar/issues"
+    "url": "https://github.com/wolfscott/vue-sweet-calendar/issues"
   },
   "author": "Mahdi Aryayi <mahdiaryayi@gmail.com>",
   "contributors": [
     {
       "name": "Mahdi Aryayi",
       "email": "mahdiaryayi@gmail.com"
+    },
+    {
+      "name": "Wolf Scott",
+      "email": "wscott@ioihan.com"
     }
   ],
   "license": "MIT"

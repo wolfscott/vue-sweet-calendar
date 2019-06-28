@@ -104,17 +104,25 @@ export default {
 
 | prop              | description                                                                       | default                          |
 | ----------------- | --------------------------------------------------------------------------------- | -------------------------------- |
-| `initialDate`     | First date that is showing on calendar                                            | `null` (showing current month)   |
-| `firstDayOfWeek`  | First day of week (1: sunday, 2:monday, 3:tuesday, etc)                           | `1` (Sunday)                     |
-| `eventCategories` | An array of objects showing different categories of events (see an example below) | `[]` (no categories)             |
-| `events`          | An array of objects showing list of events                                        | `[]` (no events)                 |
+| `initialDate`     | First date that is showing on calendar                                            |   `null` (showing current month) |
+| `firstDayOfWeek`  | First day of week (1: sunday, 2:monday, 3:tuesday, etc)                           |      `1` (Sunday)                |
+| `eventCategories` | An array of objects showing different categories of events (see an example below) |     `[]` (no categories)         |
+| `events`          | An array of objects showing list of events                                        |     `[]` (no events)             |
 | `offDays`         | An array for determining that which weekdays are off.                             | `[1, 7]` (saturdays and sundays) |
+| `cursor`          | The ability to set the cursor for the non-event days.  e.g., cursor='pointer'     |       `` default cursor          |
+| `eventCursor`     | The ability to set the cursor for the event days.  e.g., eventCursor='crosshair'  |       `` default cursor          |
 
 ## Component methods
 
 | prop      | description                     | arguments |
 | --------- | ------------------------------- | --------- |
 | `goToday` | Going to today! (current month) | -         |
+
+## Component events
+
+| event     | description                     | arguments |
+| --------- | ------------------------------- | --------- |
+| `click`   | Return the Day (date) clicked   | -         |
 
 ## Example for eventCategories
 
@@ -209,6 +217,13 @@ npm run test:unit
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Revision History
+
+0.3.2 wjscott   Revision  28-Jun-19
+
+- Added the "click" event to return the selected day
+- Added "cursor" prop to allow the cursor to be set for the clickable days
 
 ### License
 
