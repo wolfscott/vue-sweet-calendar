@@ -1,6 +1,6 @@
 <p align="center">
   <a href="#">
-    <img src="https://github.com/maryayi/vue-sweet-calendar/blob/master/src/assets/vue-sweet-calendar.png?raw=true" alt="vue-sweet-calendar" />
+    <img src="https://github.com/wolfscott/vue-sweet-calendar/blob/master/src/assets/vue-sweet-calendar.png?raw=true" alt="vue-sweet-calendar" />
   </a>
 </p>
 
@@ -223,7 +223,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 0.3.2 wjscott   Revision  28-Jun-19
 
 - Added the "click" event to return the selected day
-- Added "cursor" prop to allow the cursor to be set for the clickable days
+- Added "cursor" prop to allow the cursor to be set for the clickable, non-event, days
+- Added the "eventCursor" prop to allow the Events to have a separate cursor.  If you want the same cursor for both event and non-events, set both props to the same cursor.  Of course, you do NOT have to set a cursor if you don't care about changing the UI experience
 
 ### License
 
