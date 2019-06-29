@@ -6,11 +6,14 @@
 
 <h1 align="center" >vue-sweet-calendar</h1>
 
-<p align="center" class="badges" >
-  <a href="https://www.npmjs.com/package/vue-sweet-calendar"><img src="https://badge.fury.io/js/vue-sweet-calendar.svg" alt="npm version" /></a>
+<h2>This control branched From</h2>  <p align="center" class="badges" >
+ <a href="https://www.npmjs.com/package/vue-sweet-calendar"><img src="https://badge.fury.io/js/vue-sweet-calendar.svg" alt="npm version" /></a>
 </p>
 
-A simple and sweet vue.js calendar
+
+   `NOTE: This version of the control is NOT published to NPM and the version shown above is for the published version which at the time of this writing does not support click events in the events calendar.`
+
+A simple and sweet vue.js calendar with optional click events
 
 ## How to install
 
@@ -19,6 +22,8 @@ npm install vue-sweet-calendar --save
 ```
 
 ## How to use
+
+The click-handler is optional as are the cursor props.  If the cursor props are defined, will change over the days only.
 
 Inside your `.vue` files
 
@@ -30,6 +35,10 @@ Inside your `.vue` files
       :eventCategories="eventCategories"
       :events="events"
       ref="calendar"
+      cursor="pointer"
+      enableControls=false
+      eventCursor="crosshair"
+      @click="gotAClick($event)"
     />
   </div>
 </template>
@@ -91,6 +100,9 @@ export default {
   methods: {
     goToday() {
       this.$refs.calendar.goToday()
+    },
+    gotAClick(theDate) {
+      console.log(theDate.toString())
     }
   },
   components: {
@@ -111,6 +123,7 @@ export default {
 | `offDays`         | An array for determining that which weekdays are off.                             | `[1, 7]` (saturdays and sundays) |
 | `cursor`          | The ability to set the cursor for the non-event days.  e.g., cursor='pointer'     |       `` default cursor          |
 | `eventCursor`     | The ability to set the cursor for the event days.  e.g., eventCursor='crosshair'  |       `` default cursor          |
+| `enableControls`  | true by default but if defined and set to false will disable the < > controls     |                                  |
 
 ## Component methods
 
@@ -225,6 +238,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Added the "click" event to return the selected day
 - Added "cursor" prop to allow the cursor to be set for the clickable, non-event, days
 - Added the "eventCursor" prop to allow the Events to have a separate cursor.  If you want the same cursor for both event and non-events, set both props to the same cursor.  Of course, you do NOT have to set a cursor if you don't care about changing the UI experience
+
+0.3.3 wjscott   Revision  29-Jun-19
+
+- Added a prop "enableControls", defaults to true which makes it backward compatible; setting this value to false disables the user navigation left and right ability.  This is handy when you want to control the navigation manually -or- want a single month selection only
 
 ### License
 

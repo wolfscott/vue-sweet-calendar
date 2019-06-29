@@ -2,18 +2,18 @@
   <div id="sweetCalendar">
     <div class="container calendar">
       <div class="header">
-        <div
-          class="left-arrow"
-          @click="prevMonth"
-        >
-          <span>&lt;</span>
+        <div class="left-arrow">
+          <span
+            @click="prevMonth"
+            v-show="enableControls"
+          >&lt;</span>
         </div>
         <div class="month">{{ selectedMonthName }} {{ selectedYear }}</div>
-        <div
-          class="right-arrow"
-          @click="nextMonth"
-        >
-          <span>&gt;</span>
+        <div class="right-arrow">
+          <span
+            @click="nextMonth"
+            v-show="enableControls"
+          >&gt;</span>
         </div>
       </div>
       <div class="body">
@@ -96,9 +96,9 @@ export default {
     }
   },
   methods: {
-    clickedDay(day) {
-      if(day!== null) {
-        this.$emit("click", day._date)
+    clickedDay (day) {
+      if (day !== null) {
+        this.$emit('click', day._date)
       }
     },
     prevMonth () {
@@ -124,7 +124,7 @@ export default {
       return weekdays
     },
     generateDayStyle (date) {
-      let style = {cursor:this.cursor}
+      let style = { cursor: this.cursor }
       for (let event of this.events) {
         if (date.isInRange(event.start, event.end, event.repeat)) {
           let category = this.eventCategories.find(item => item.id === event.categoryId) || {}
@@ -171,13 +171,17 @@ export default {
       type: String,
       default: null
     },
+    enableControls: {
+      type: Boolean,
+      default: true
+    },
     eventCursor: {
       type: String,
-      default: ""
+      default: ''
     },
     cursor: {
       type: String,
-      default: ""
+      default: ''
     },
     firstDayOfWeek: {
       type: Number,
