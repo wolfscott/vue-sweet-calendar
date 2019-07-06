@@ -5,14 +5,14 @@
         <div class="left-arrow">
           <span
             @click="prevMonth"
-            v-show="enableControls"
+            v-show="isLeftArrowEnabled"
           >&lt;</span>
         </div>
         <div class="month">{{ selectedMonthName }} {{ selectedYear }}</div>
         <div class="right-arrow">
           <span
             @click="nextMonth"
-            v-show="enableControls"
+            v-show="isRightArrowEnabled"
           >&gt;</span>
         </div>
       </div>
@@ -70,7 +70,9 @@ export default {
     return {
       today: new DateTime(),
       date: null,
-      weekdays: null
+      weekdays: null,
+      isLeftArrowEnabled: true,
+      isRightArrowEnabled: true
     }
   },
   computed: {
@@ -103,9 +105,11 @@ export default {
     },
     prevMonth () {
       this.date = new DateTime(this.selectedYear, this.selectedMonth - 1, 1)
+      // todo: block < if before beginDate
     },
     nextMonth () {
       this.date = new DateTime(this.selectedYear, this.selectedMonth + 1, 1)
+      // todo: block > if past endDate
     },
     generateWeekdayNames (firstDayOfWeek = 1) {
       let weekdays = [
@@ -125,6 +129,11 @@ export default {
     },
     generateDayStyle (date) {
       let style = { cursor: this.cursor }
+      if (this.beginDate) {
+        if (!date.isInRange(this.beginDate, this.endDate)) {
+          return { cursor: 'not-allowed', color: '#999', background: '#555' } // todo: make X
+        }
+      }
       for (let event of this.events) {
         if (date.isInRange(event.start, event.end, event.repeat)) {
           let category = this.eventCategories.find(item => item.id === event.categoryId) || {}
@@ -164,7 +173,14 @@ export default {
     },
     goToday () {
       this.date = this.today
+    },
+    setEnableLeftArrow () {
+      return this.enableControls
+    },
+    isEnableRightArrow () {
+      return this.enableControls
     }
+
   },
   props: {
     initialDate: {
@@ -186,6 +202,14 @@ export default {
     firstDayOfWeek: {
       type: Number,
       default: 1 // 1: Sunday, 2: Monday, etc
+    },
+    beginDate: {
+      type: String,
+      default: null
+    },
+    endDate: {
+      type: String,
+      default: null
     },
     eventCategories: {
       type: Array,
@@ -209,6 +233,10 @@ export default {
   beforeMount () {
     this.date = Date.parse(this.initialDate) ? new DateTime(this.initialDate) : new DateTime()
     this.weekdays = this.generateWeekdayNames(this.firstDayOfWeek)
+    if (!this.enableControls) {
+      this.isLeftArrowEnabled = false
+      this.isRightArrowEnabled = false
+    }
   }
 }
 </script>

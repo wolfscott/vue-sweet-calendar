@@ -36,8 +36,8 @@ Inside your `.vue` files
       :events="events"
       ref="calendar"
       cursor="pointer"
-      enableControls=false
       eventCursor="crosshair"
+      enableControls=false
       @click="gotAClick($event)"
     />
   </div>
