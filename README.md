@@ -15,7 +15,17 @@
 
 A simple and sweet vue.js calendar with optional click events
 
-## How to install
+## How to install THIS version in your project
+
+NOTE: This is DIRECT FROM THIS REPO, NOT NPM
+
+IF you intend to keep this as part of your production project, I HIGHLY RECOMMEND you fork this repo to ensure this repo is available for your product in the future.  While I do not intend on making breaking changes, this IS a work in progress.
+
+```
+npm install github:wolfscott/vue-sweet-calendar
+```
+
+## How to install the ORIGINAL package on NPM (NOT this package)
 
 ```
 npm install vue-sweet-calendar --save

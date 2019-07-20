@@ -97,6 +97,9 @@ export default {
       return this.date.getFullYear()
     }
   },
+  watch: {
+    date: buildCalendar()
+  },
   methods: {
     clickedDay (day) {
       if (day !== null) {
@@ -179,6 +182,14 @@ export default {
     },
     isEnableRightArrow () {
       return this.enableControls
+    },
+    buildCalendar() {
+      this.date = Date.parse(this.initialDate) ? new DateTime(this.initialDate) : new DateTime()
+      this.weekdays = this.generateWeekdayNames(this.firstDayOfWeek)
+      if (!this.enableControls) {
+        this.isLeftArrowEnabled  = false
+        this.isRightArrowEnabled = false
+      }
     }
 
   },
@@ -231,12 +242,7 @@ export default {
     }
   },
   beforeMount () {
-    this.date = Date.parse(this.initialDate) ? new DateTime(this.initialDate) : new DateTime()
-    this.weekdays = this.generateWeekdayNames(this.firstDayOfWeek)
-    if (!this.enableControls) {
-      this.isLeftArrowEnabled = false
-      this.isRightArrowEnabled = false
-    }
+    this.buildCalendar()
   }
 }
 </script>
