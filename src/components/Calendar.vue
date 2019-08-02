@@ -164,8 +164,9 @@ export default {
     },
     generateAfterStyle (date) {
       let style = {}
+console.log( date , typeof date )
       for (let event of this.events) {
-        if (date.isInRange(event.start, event.end, event.repeat) && date.getNextDay().isInRange(event.start, event.end, event.repeat)) {
+        if (date.isInRange(event.start, event.end, event.repeat)) //  && date.getNextDay().isInRange(event.start, event.end, event.repeat)) {
           let category = this.eventCategories.find(item => item.id === event.categoryId) || {}
           Object.assign(style, {
             backgroundColor: category.backgroundColor
