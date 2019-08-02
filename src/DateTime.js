@@ -7,8 +7,9 @@ export default class DateTime {
     } else {
       date = new Date(...args)
     }
- //   date.setHours(0, 0, 0, 0)
+    date.setHours(12, 0, 0, 0)
     this._date = date
+
   }
 
   getMonth () {
@@ -64,6 +65,9 @@ export default class DateTime {
     let endTime
     let startCheck
     let endCheck
+
+    console.log( "start, startDate" , start , startDate )
+
     switch (repeat) {
       case 'monthly':
         startTime = new this.constructor(
