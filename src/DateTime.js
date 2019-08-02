@@ -7,7 +7,7 @@ export default class DateTime {
     } else {
       date = new Date(...args)
     }
-//    date.setHours(0, 0, 0, 0)
+    date.setHours(0, 0, 0, 0)
     this._date = date
   }
 
