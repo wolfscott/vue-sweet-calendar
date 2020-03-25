@@ -69,7 +69,6 @@ export default {
   data () {
     return {
       today: new DateTime(),
-      selectedDate: new DateTime(),
       date: null,
       weekdays: null,
       isLeftArrowEnabled: true,
@@ -204,7 +203,8 @@ export default {
       default: null
     },
     selectedDate: {
-      type: String
+      type: Date,
+      default: new DateTime()
     },
     enableControls: {
       type: Boolean,
