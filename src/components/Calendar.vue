@@ -43,7 +43,8 @@
             `day-${day.getDate()},
             weekday-${day.getDay()}`,
             offDays.includes(day.getDay()) ? 'off-day' : null,
-            day.toDateString() === today.toDateString() ? 'today' : null
+            //day.toDateString() === today.toDateString() ? 'today' : null
+            day.toDateString() === selectedDate.toDateString() ? 'today' : null
             ]"
             :style="generateDayStyle(day)"
           >
@@ -69,6 +70,7 @@ export default {
   data () {
     return {
       today: new DateTime(),
+      selectedDate: new DateTime(),
       date: null,
       weekdays: null,
       isLeftArrowEnabled: true,
@@ -197,6 +199,9 @@ export default {
     initialDate: {
       type: String,
       default: null
+    },
+    selectedDate: {
+      type: String
     },
     enableControls: {
       type: Boolean,
