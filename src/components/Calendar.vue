@@ -134,7 +134,6 @@ export default {
     },
     generateDayStyle (date) {
       let style = { cursor: this.cursor }
-      console.log( "generateDayStyle() date,type" ,date , typeof date )
       if (this.beginDate) {
         if (!date.isInRange(this.beginDate, this.endDate)) {
           return { cursor: 'not-allowed', color: '#999', background: '#555' } // todo: make X
@@ -142,7 +141,6 @@ export default {
       }
       for (let event of this.events) {
         if (date.isInRange(event.start, event.end, event.repeat)) {
-          console.log( "in range" , event.start , event.end )
           let category = this.eventCategories.find(item => item.id === event.categoryId) || {}
           Object.assign(style, {
             color: category.id ? category.textColor : null,
