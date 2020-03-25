@@ -3563,7 +3563,6 @@ function () {
       var endTime;
       var startCheck;
       var endCheck;
-      console.log("start, startDate", start, startDate);
 
       switch (repeat) {
         case 'monthly':

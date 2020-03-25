@@ -66,8 +66,6 @@ export default class DateTime {
     let startCheck
     let endCheck
 
-    console.log( "start, startDate" , start , startDate )
-
     switch (repeat) {
       case 'monthly':
         startTime = new this.constructor(
