@@ -230,21 +230,15 @@ export default {
     },
     eventCategories: {
       type: Array,
-      default () {
-        return []
-      }
+      default: () => []
     },
     events: {
       type: Array,
-      default () {
-        return []
-      }
+      default: () => []
     },
     offDays: {
       type: Array,
-      default () {
-        return [1, 7]
-      }
+      default:[1, 7]
     }
   },
   beforeMount () {
