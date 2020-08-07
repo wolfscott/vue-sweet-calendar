@@ -202,7 +202,7 @@ export default {
     },
     selectedDate: {
       type: Date,
-      default: new DateTime()
+      default: () => {return new DateTime()}
     },
     enableControls: {
       type: Boolean,
