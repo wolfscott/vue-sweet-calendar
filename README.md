@@ -243,6 +243,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Revision History
 
+0.3.6 wjscott   Revision  20-Aug-20
+
+- Vue throws a warning  "Props with type Object/Array must use a factory function to return the default value." so updated the defaults accordingly (well, I think)
+
 0.3.2 wjscott   Revision  28-Jun-19
 
 - Added the "click" event to return the selected day

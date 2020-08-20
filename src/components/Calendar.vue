@@ -193,7 +193,6 @@ export default {
         this.isRightArrowEnabled = false
       }
     }
-
   },
   props: {
     initialDate: {
@@ -230,15 +229,15 @@ export default {
     },
     eventCategories: {
       type: Array,
-      default: () => []
+      default: () => {return []}
     },
     events: {
       type: Array,
-      default: () => []
+      default: () => {return []}
     },
     offDays: {
       type: Array,
-      default:[1, 7]
+      default:() => {return [1, 7]}
     }
   },
   beforeMount () {
